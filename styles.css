@@ -33,11 +33,16 @@ body {
 #container>div:hover {
     /* border: none; */
     background-color: cyan;
-    transition:all .4s ease;
+    transition:all .1s ease;
 
 }
 
 #container>div.filled {
     background-color: brown;
     border: none;
+}
+
+#user-settings {
+    display: flex;
+    justify-content: space-between;
 }

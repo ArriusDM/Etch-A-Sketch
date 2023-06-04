@@ -1,12 +1,10 @@
 const container = document.querySelector('#container')
-console.log(container)
-
+const resetButton = document.querySelector('#resetbtn')
 
 
 
 // Add a prompt for user size input
-let userSize = 12
-
+let userSize = 16
 
 
 function rowsAndColumns(numBoxes) {
@@ -21,15 +19,35 @@ function rowsAndColumns(numBoxes) {
         box.setAttribute('style', `height:${calc1};width:${calc2}`)
         container.appendChild(box)
         
-        box.addEventListener('mousedown', e => {
+        box.addEventListener('mouseenter', e => {
             box.setAttribute('class', 'filled')
         })
+        resetButton.addEventListener('click',function() {
+            box.removeAttribute('class', 'filled')
+        })
+
 
     } 
 
 }
 
 
+// function reset() {
+//     resetButton.addEventListener('click', e=> {
+//         box.styl
+//     })
+// }
 
+
+function clickPlacement() {
+    box.addEventListener('mousedown', e => {
+        box.setAttribute('class', 'filled')
+    })
+}
+function snakePlacement() {
+    box.addEventListener('mouseenter', e => {
+        box.setAttribute('class', 'filled')
+    })
+}
 
 rowsAndColumns(userSize)
