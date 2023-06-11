@@ -1,53 +1,84 @@
 const container = document.querySelector('#container')
 const resetButton = document.querySelector('#resetbtn')
+const toggleBorder = document.querySelector('#border-btn')
 
 
 
-// Add a prompt for user size input
-let userSize = 16
+let userSize = document.getElementById("numberInput").value
+console.log(userSize)
 
+let box;
 
-function rowsAndColumns(numBoxes) {
-    for (let b = 0; b < (numBoxes * numBoxes); b++) {
-        const box = document.createElement('div')
+// Nest rowsAndColumns function inside an if statement (to better use buttons?)
 
-        let calc1 = (100 / numBoxes) + "%";
-        let calc2 = (100 / numBoxes) + "%";
+let gridSizeCalc = (100 / userSize) + "%";
+console.log(gridSizeCalc)
 
-        console.log(calc1, calc2)
+function rowsAndColumns(userSize) {
 
-        box.setAttribute('style', `height:${calc1};width:${calc2}`)
+    for (let b = 0; b < (userSize * userSize); b++) {
+
+        box = document.createElement('div')
+        box.setAttribute('style', `height:${gridSizeCalc};width:${gridSizeCalc}`)
+
         container.appendChild(box)
-        
+
+        // Couldn't manage to get working properly, remnants of borders stayed. Scrapped
+        // toggleBorder.addEventListener('click', function () {
+        //     if (box.classList.contains('noborder')) {
+        //         box.removeAttribute('class', 'noborder')
+        //         box.setAttribute('class', 'border')
+        //         toggleBorder.innerHTML = 'Borders : ON'
+        //         reset()
+        //         console.log('border on')
+
+        //     } else {
+        //         box.removeAttribute('class', 'filled')
+        //         box.setAttribute('class', 'noborder')
+        //         toggleBorder.innerHTML = 'Borders : OFF'
+        //         console.log('border off')
+        //     }
+        // })
+        resetButton.addEventListener('click', e => {
+            box.removeAttribute('class', 'filled')
+
+        })
+
+
         box.addEventListener('mouseenter', e => {
             box.setAttribute('class', 'filled')
-        })
-        resetButton.addEventListener('click',function() {
-            box.removeAttribute('class', 'filled')
+
         })
 
-
-    } 
+    }
 
 }
+rowsAndColumns(userSize)
 
 
-// function reset() {
-//     resetButton.addEventListener('click', e=> {
-//         box.styl
+
+document.getElementById("numberInput").addEventListener('change', e => {
+    userSize = document.getElementById("numberInput").value
+    container.removeChild(box)
+    rowsAndColumns(userSize)
+    reset()
+})
+
+
+function reset() {
+    resetButton.addEventListener('click', function () {
+        box.removeAttribute('class', 'filled')
+})
+}
+
+// function clickPlacement() {
+//     box.addEventListener('click', e => {
+//         box.setAttribute('class', 'filled')
+//     })
+// }
+// function snakePlacement() {
+//     box.addEventListener('mouseenter', e => {
+//         box.setAttribute('class', 'filled')
 //     })
 // }
 
-
-function clickPlacement() {
-    box.addEventListener('mousedown', e => {
-        box.setAttribute('class', 'filled')
-    })
-}
-function snakePlacement() {
-    box.addEventListener('mouseenter', e => {
-        box.setAttribute('class', 'filled')
-    })
-}
-
-rowsAndColumns(userSize)

@@ -21,26 +21,36 @@ body {
     padding: 0%;
     min-height: 1%;
     min-width: 1%;
+    flex: 1 1 auto;
+    user-select: none;
     box-sizing: border-box;
     border: 1px #8a87a9 outset;
-    flex: 1 1 auto;
-
-    user-select: none;
-
-
+    
 }
 
-#container>div:hover {
-    /* border: none; */
+/* #container>div.border {
+    box-sizing: border-box;
+    border: 1px #8a87a9 outset;
+} */
+
+/* #container>div.noborder {
+    border: none;
+} */
+
+
+
+/* #container>div:hover {
+
     background-color: cyan;
-    transition:all .1s ease;
+    transition: all .1s ease;
 
-}
+} */
 
 #container>div.filled {
     background-color: brown;
     border: none;
 }
+
 
 #user-settings {
     display: flex;

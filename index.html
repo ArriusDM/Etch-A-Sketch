@@ -13,20 +13,33 @@
 <body>
     <div>
         <div id="container">
+            <!-- <div></div> -->
         </div>
 
         <div id='user-settings'>
             <div>
-                <button>grid size</button>
-                <button>show borders</button>
-                <button>color picker</button>
-                <button>drawing style</button>    
+                <div id="grid-options">
+                    <input type="text" id="numberInput" name="numberInput" min="1" max="100" maxlength="3" value="16">
+                    <!-- <input type="range" id="grid-slider" name="grid-slider" list="markers">
+                    <datalist id="markers">
+                        <option value="0"></option>
+                        <option value="25"></option>
+                        <option value="50"></option>
+                        <option value="75"></option>
+                        <option value="100"></option>
+                    </datalist> -->
+
+                </div>
+
+                <button id="border-btn">Border Toggle</button>
+                <button id="color-picker-btn">Color Picker</button>
+                <button id="drawing-style-btn">Drawing Style Toggle</button>
             </div>
             <div>
-                <button id="resetbtn">reset</button>
+                <button id="resetbtn">RESET</button>
             </div>
         </div>
-        
+
     </div>
 
 
