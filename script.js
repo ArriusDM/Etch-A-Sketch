@@ -7,22 +7,20 @@ const toggleBorder = document.querySelector('#border-btn')
 let userSize = document.getElementById("numberInput").value
 console.log(userSize)
 
-let box;
 
 // Nest rowsAndColumns function inside an if statement (to better use buttons?)
 
-let gridSizeCalc = (100 / userSize) + "%";
-console.log(gridSizeCalc)
+
 
 function rowsAndColumns(userSize) {
-
+    let gridSizeCalc = (100 / userSize) + "%";
+    console.log(gridSizeCalc)
     for (let b = 0; b < (userSize * userSize); b++) {
-
-        box = document.createElement('div')
-        box.setAttribute('style', `height:${gridSizeCalc};width:${gridSizeCalc}`)
-
+        const box = document.createElement('div')
+        // box = document.createElement('div')
         container.appendChild(box)
-
+        box.setAttribute('style', `height:${gridSizeCalc};width:${gridSizeCalc}`)
+        
         // Couldn't manage to get working properly, remnants of borders stayed. Scrapped
         // toggleBorder.addEventListener('click', function () {
         //     if (box.classList.contains('noborder')) {
@@ -44,7 +42,6 @@ function rowsAndColumns(userSize) {
 
         })
 
-
         box.addEventListener('mouseenter', e => {
             box.setAttribute('class', 'filled')
 
@@ -55,21 +52,34 @@ function rowsAndColumns(userSize) {
 }
 rowsAndColumns(userSize)
 
+// resetButton.addEventListener('click', e => {
+//     box.removeAttribute('class', 'filled')
 
+// })
 
+// box.addEventListener('mouseenter', e => {
+//     box.setAttribute('class', 'filled')
+
+// })
+
+// Change grid size based on user input, deletes all then invoked rowsAndColumns
 document.getElementById("numberInput").addEventListener('change', e => {
     userSize = document.getElementById("numberInput").value
-    container.removeChild(box)
+    
+    container.textContent = '';
+
     rowsAndColumns(userSize)
-    reset()
+    
 })
 
 
-function reset() {
-    resetButton.addEventListener('click', function () {
-        box.removeAttribute('class', 'filled')
-})
-}
+// function reset() {
+//     resetButton.addEventListener('click', function () {
+
+//         box.removeAttribute('class', 'filled')
+        
+// })
+// }
 
 // function clickPlacement() {
 //     box.addEventListener('click', e => {

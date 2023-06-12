@@ -25,7 +25,7 @@ body {
     user-select: none;
     box-sizing: border-box;
     border: 1px #8a87a9 outset;
-    
+
 }
 
 /* #container>div.border {
@@ -48,6 +48,7 @@ body {
 
 #container>div.filled {
     background-color: brown;
+    transition: all .1s ease;
     border: none;
 }
 
