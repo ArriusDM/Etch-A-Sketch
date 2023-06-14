@@ -28,32 +28,36 @@ body {
 
 }
 
-/* #container>div.border {
-    box-sizing: border-box;
-    border: 1px #8a87a9 outset;
-} */
+#user-settings>* {
+    /* background-color: #f5f6f6; */
+    margin: auto;
+    margin-top: 2em;
+    display: flex;
+    flex-flow: row nowrap;
+    align-content: center;
+    justify-content: space-between;
 
-/* #container>div.noborder {
-    border: none;
-} */
-
-
-
-/* #container>div:hover {
-
-    background-color: cyan;
-    transition: all .1s ease;
-
-} */
-
-#container>div.filled {
-    background-color: brown;
-    transition: all .1s ease;
-    border: none;
+    width: 720px;
 }
 
-
-#user-settings {
+#color-options {
     display: flex;
-    justify-content: space-between;
+}
+
+fieldset {
+    background-color: #f5f6f6;
+}
+
+legend {
+    font-weight: bold;
+}
+
+#numberInput {
+    width: 3em;
+}
+
+#container>div.filled {
+    background-color: #a84762;
+    transition: all .1s ease;
+    border: none;
 }
