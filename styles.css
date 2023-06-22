@@ -46,6 +46,7 @@ body {
 
 fieldset {
     background-color: #f5f6f6;
+    border-radius: 10px;
 }
 
 legend {
@@ -60,4 +61,8 @@ legend {
     background-color: #a84762;
     transition: all .1s ease;
     border: none;
+}
+
+#resetbtn:hover {
+    background-color: red;
 }
